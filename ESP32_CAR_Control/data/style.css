@@ -1,0 +1,55 @@
+html {
+  font-family: Helvetica;
+  display: inline-block;
+  margin: 0px auto;
+  text-align: center;
+}
+
+/* Контейнер для выравнивания */
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 75px; /* Отступы между элементами */
+  height: 300px; /* Высота блока */
+}
+
+/* Вертикальный слайдер */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px; /* Ширина полоски */
+  height: 250px; /* Высота слайдера */
+  background: linear-gradient(to top, #ff5733, #33ff57); /* Градиент */
+  border-radius: 5px;
+  outline: none;
+  
+  /* Главная магия - делаем вертикальным */
+  writing-mode: vertical-lr; /* Для Chrome, Edge, Safari */
+  direction: rtl; /* Чтобы верх был 100, а низ - 0 */
+}
+
+/* Круглый ползунок */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 20px;
+  background: black;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Эффект при наведении */
+input[type="range"]:hover::-webkit-slider-thumb {
+  transform: scale(1.2);
+}
