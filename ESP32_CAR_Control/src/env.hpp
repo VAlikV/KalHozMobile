@@ -15,6 +15,14 @@
 #include <SPIFFS.h>
 #endif
 
+#define LEFT_MOTOR_EN 27   // Цифровой выход (левый мотор). Управление скоростью
+#define LEFT_MOTOR_A 12     // Цифровой выход (левый мотор). Если 0 - едем вперед
+#define LEFT_MOTOR_B 14     // Цифровой выход (левый мотор). Если 0 - едем назад
+
+#define RIGHT_MOTOR_EN 33   // Цифровой выход (правый мотор). Управление скоростью
+#define RIGHT_MOTOR_A 25    // Цифровой выход (правый мотор). Если 0 - едем вперед
+#define RIGHT_MOTOR_B 26    // Цифровой выход (правый мотор). Если 0 - едем назад
+
 IPAddress apIP(192, 168, 2, 3);
 
 String _ssidAP = "KalHozMobile";   // SSID AP точки доступа
@@ -31,5 +39,7 @@ int speed_right = 0;
 
 bool dir_left = true;
 bool dir_right = true;
+
+
 
 #endif

@@ -1,4 +1,5 @@
 #include "env.hpp"
+#include "motors.hpp"
 
 void handle_Restart();
 void handle_settings();
@@ -39,6 +40,8 @@ void handle_speeding(){
 
   speed_right = st.substring(st.indexOf("=")+1, st.length()).toInt();
   dir_right = (speed_right >= 0);
+
+  motors();
 
   Serial.print(dir_left);Serial.print(" ");Serial.println(speed_left);
   Serial.print(dir_right);Serial.print(" ");Serial.println(speed_right);
