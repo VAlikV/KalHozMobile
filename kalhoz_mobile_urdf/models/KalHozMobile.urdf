@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="KalHozMobile">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00859988347059087 -0.000134002469390632 0.0651144707354215"
+        rpy="0 0 0" />
+      <mass
+        value="5.47335959213036" />
+      <inertia
+        ixx="0.00765025145241159"
+        ixy="-2.52690429370982E-07"
+        ixz="-1.51493490794792E-05"
+        iyy="0.00721459652833044"
+        iyz="-8.01039273224075E-08"
+        izz="0.0145073067280245" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kalhoz_mobile_urdf/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kalhoz_mobile_urdf/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="1.6209E-12 -0.0074712 7.9354E-12"
+        rpy="0 0 0" />
+      <mass
+        value="0.85535" />
+      <inertia
+        ixx="0.00049626"
+        ixy="-1.5263E-15"
+        ixz="-3.4023E-10"
+        iyy="0.00089585"
+        iyz="-5.7354E-16"
+        izz="0.00049626" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kalhoz_mobile_urdf/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kalhoz_mobile_urdf/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_joint"
+    type="revolute">
+    <origin
+      xyz="0.0425000000000001 0.0965430452616969 0.0230999999999996"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="30"
+      velocity="10" />
+  </joint>
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="-1.6206E-12 0.0074712 7.9353E-12"
+        rpy="0 0 0" />
+      <mass
+        value="0.85535" />
+      <inertia
+        ixx="0.00049626"
+        ixy="-1.5227E-15"
+        ixz="3.4023E-10"
+        iyy="0.00089585"
+        iyz="5.7064E-16"
+        izz="0.00049626" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kalhoz_mobile_urdf/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.95294 1 0.52941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kalhoz_mobile_urdf/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_joint"
+    type="revolute">
+    <origin
+      xyz="0.0424999999999988 -0.0965430452616977 0.0231000000000003"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="30"
+      velocity="10" />
+  </joint>
+  <link
+    name="imu">
+    <inertial>
+      <origin
+        xyz="0 -4.57498448847016E-12 0.00150000000000003"
+        rpy="0 0 0" />
+      <mass
+        value="0.00702000000000001" />
+      <inertia
+        ixx="1.3689E-07"
+        ixy="7.12667033401571E-22"
+        ixz="5.55089940782906E-24"
+        iyy="2.39265E-07"
+        iyz="4.64851093218701E-22"
+        izz="3.65625E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kalhoz_mobile_urdf/meshes/imu.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kalhoz_mobile_urdf/meshes/imu.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="imu_j"
+    type="fixed">
+    <origin
+      xyz="-0.00324837868812255 0.000128905720000022 0.124"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="-0.011696 0.0010152 -0.02425"
+        rpy="0 0 0" />
+      <mass
+        value="0.094104" />
+      <inertia
+        ixx="2.7909E-05"
+        ixy="-5.2518E-08"
+        ixz="3.3534E-07"
+        iyy="4.4353E-05"
+        iyz="-2.4873E-08"
+        izz="6.9475E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kalhoz_mobile_urdf/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kalhoz_mobile_urdf/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_j"
+    type="fixed">
+    <origin
+      xyz="0.015 -0.00250000000000011 0.18138"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
