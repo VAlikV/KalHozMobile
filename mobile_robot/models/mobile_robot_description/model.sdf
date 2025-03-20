@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="mobile_robot_v1">
+    <static>false</static>
+    
+    <!-- Base footprint -->
+    <link name="base_footprint"/>
+    
+    <!-- Base link -->
+    <link name="base_link">
+      <inertial>
+        <pose>-0.00859988 -0.00013400 0.0651145 0 0 0</pose>
+        <mass>5.47336</mass>
+        <inertia>
+          <ixx>0.00765025</ixx>
+          <ixy>-2.5269e-07</ixy>
+          <ixz>-1.51493e-05</ixz>
+          <iyy>0.0072146</iyy>
+          <iyz>-8.01039e-08</iyz>
+          <izz>0.0145073</izz>
+        </inertia>
+      </inertial>
+      <visual name="base_visual">
+        <geometry>
+          <mesh>
+            <uri>model://mobile_robot_description/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="base_coll">
+      <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://mobile_robot_description/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    
+    <joint name="base_joint" type="fixed">
+			<parent>base_footprint</parent>
+		  <child>base_link</child>
+		  <pose>0 0 0 0 0 0</pose>
+		</joint>
+    
+    <!-- Left wheel -->
+    <link name="left_wheel">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.85535</mass>
+        <inertia>
+          <ixx>0.00049626</ixx>
+          <ixy>-1.5263e-15</ixy>
+          <ixz>-3.4023e-10</ixz>
+          <iyy>0.00089585</iyy>
+          <iyz>-5.7354e-16</iyz>
+          <izz>0.00049626</izz>
+        </inertia>
+      </inertial>
+      <visual name="left_visual">
+      <pose>0.0425 0.09654 0.0231 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://mobile_robot_description/meshes/left_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="left_coll">
+      <pose>0.0425 0.09654 0.0231 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://mobile_robot_description/meshes/left_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="left_joint" type="revolute">
+      <pose>0.0425 0.09654 0.0231 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>left_wheel</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    
+    <!-- Right wheel -->
+    <link name="right_wheel">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.85535</mass>
+        <inertia>
+          <ixx>0.00049626</ixx>
+          <ixy>-1.5227e-15</ixy>
+          <ixz>3.4023e-10</ixz>
+          <iyy>0.00089585</iyy>
+          <iyz>5.7064e-16</iyz>
+          <izz>0.00049626</izz>
+        </inertia>
+      </inertial>
+      <visual name="right_visual">
+      <pose>0.0425 -0.09654  0.0231 0 0 0</pose> 
+        <geometry>
+          <mesh>
+            <uri>model://mobile_robot_description/meshes/right_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="right_coll">
+      <pose>0.0425 -0.09654  0.0231 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://mobile_robot_description/meshes/right_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="right_joint" type="revolute">
+      <pose>0.0425 -0.09654  0.0231 0 0 0</pose> 
+      <parent>base_link</parent>
+      <child>right_wheel</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    
+    <!-- IMU -->
+    <link name="imu_link">
+      <pose>-0.003248 0.0001289 0.124 0 0 0</pose>
+      <gravity>true</gravity>
+		  <sensor name="bmb_imu" type="imu">
+		    <always_on>true</always_on>
+		    <update_rate>100</update_rate>
+		    <visualize>true</visualize>
+		    <imu>
+		      <orientation>
+		        <x>
+		          <noise type="gaussian">
+		            <mean>0.0</mean>
+		            <stddev>2e-3</stddev>
+		          </noise>
+		        </x>
+		        <y>
+		          <noise type="gaussian">
+		            <mean>0.0</mean>
+		            <stddev>2e-3</stddev>
+		          </noise>
+		        </y>
+		        <z>
+		          <noise type="gaussian">
+		            <mean>0.0</mean>
+		            <stddev>2e-3</stddev>
+		          </noise>
+		        </z>
+		      </orientation>
+		      <angular_velocity>
+		        <x>
+		          <noise type="gaussian">
+		            <mean>0.0</mean>
+		            <stddev>2e-4</stddev>
+		          </noise>
+		        </x>
+		        <y>
+		          <noise type="gaussian">
+		            <mean>0.0</mean>
+		            <stddev>2e-4</stddev>
+		          </noise>
+		        </y>
+		        <z>
+		          <noise type="gaussian">
+		            <mean>0.0</mean>
+		            <stddev>2e-4</stddev>
+		          </noise>
+		        </z>
+		      </angular_velocity>
+		      <linear_acceleration>
+		        <x>
+		          <noise type="gaussian">
+		            <mean>0.0</mean>
+		            <stddev>1.7e-2</stddev>
+		          </noise>
+		        </x>
+		        <y>
+		          <noise type="gaussian">
+		            <mean>0.0</mean>
+		            <stddev>1.7e-2</stddev>
+		          </noise>
+		        </y>
+		        <z>
+		          <noise type="gaussian">
+		            <mean>0.0</mean>
+		            <stddev>1.7e-2</stddev>
+		          </noise>
+		        </z>
+		      </linear_acceleration>
+		    </imu>
+		    <plugin name="basic_mobile_bot_imu" filename="libgazebo_ros_imu_sensor.so">
+		      <initial_orientation_as_reference>false</initial_orientation_as_reference>
+		      <frame_name>imu_link</frame_name>
+		      <ros>
+		        <namespace>/imu</namespace>
+		        <remapping>~/out:=data</remapping>
+		      </ros>
+		    </plugin>
+		  </sensor>
+    </link>
+    
+    <joint name="imu_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>imu_link</child>
+    </joint>
+    
+    <!-- LiDAR -->
+    <link name="lidar_link">
+      <pose>0.015 -0.0025 0.18138 0 0 0</pose>
+      <visual name="lidar_visual">
+      <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://mobile_robot_description/meshes/lidar.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="lidar_coll">
+      <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://mobile_robot_description/meshes/lidar.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <sensor name="lidar" type="ray">
+		  <pose>0 0 0 0 0 0</pose>
+		  <always_on>true</always_on>
+		  <visualize>true</visualize>
+		  <update_rate>10</update_rate>
+		  <ray>
+		    <scan>
+		      <horizontal>
+		        <samples>360</samples>
+		        <resolution>1.00000</resolution>
+		        <min_angle>0.000000</min_angle>
+		        <max_angle>6.280000</max_angle>
+		      </horizontal>
+		    </scan>
+		    <range>
+		      <min>0.150000</min>
+		      <max>12</max>
+		      <resolution>0.010000</resolution>
+		    </range>
+		    <noise>
+		      <type>gaussian</type>
+		      <mean>0.0</mean>
+		      <stddev>0.01</stddev>
+		    </noise>
+		  </ray>
+		  <plugin name="scan" filename="libgazebo_ros_ray_sensor.so">
+		    <ros>
+		      <remapping>~/out:=scan</remapping>
+		    </ros>
+		    <output_type>sensor_msgs/LaserScan</output_type>
+		    <frame_name>lidar_link</frame_name>
+		  </plugin>
+		</sensor>
+  
+    </link>
+    <joint name="lidar_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>lidar_link</child>
+    </joint>
+    
+    <!-- *********************** WHEEL ODOMETRY ***************************    -->
+		<plugin name="basic_mobile_bot_diff_drive" filename="libgazebo_ros_diff_drive.so">
+
+		  <update_rate>30</update_rate>
+
+		  <!-- wheels -->
+		  <left_joint>left_joint</left_joint>
+		  <right_joint>right_joint</right_joint>
+
+		  <!-- kinematics -->
+		  <wheel_separation>0.155</wheel_separation>
+		  <wheel_diameter>0.082</wheel_diameter>
+
+		  <!-- limits -->
+		  <max_wheel_torque>20</max_wheel_torque>
+		  <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+		  <!-- Receive velocity commands on this ROS topic -->
+		  <command_topic>cmd_vel</command_topic>
+
+		  <!-- output -->
+		  <!-- When false, publish no wheel odometry data to a ROS topic -->
+		  <publish_odom>true</publish_odom>
+
+		  <!-- When true, publish coordinate transform from odom to base_footprint -->
+		  <!-- I usually use the robot_localization package to publish this transform -->   
+		  <publish_odom_tf>false</publish_odom_tf>
+		  
+		  <!-- When true, publish coordinate transform from base_link to the wheels -->
+		  <!-- The robot_state_publisher package is often used to publish this transform -->   
+		  <publish_wheel_tf>false</publish_wheel_tf>
+
+		  <odometry_topic>odom</odometry_topic>
+		  <odometry_frame>odom</odometry_frame>
+		  <robot_base_frame>base_footprint</robot_base_frame>
+
+		  <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+		  <odometry_source>1</odometry_source>
+
+		  <!-- Change the ROS topic we will publish the odometry data to -->
+		  <ros>
+		    <remapping>odom:=wheel/odometry</remapping>
+		  </ros>
+
+		</plugin>
+
+	 <!-- *********************** JOINT STATE PUBLISHER *********************   -->
+		
+		<plugin name="basic_mobile_bot_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
+		  <ros>
+		    <remapping>~/out:=joint_states</remapping>
+		  </ros>
+		  <update_rate>30</update_rate>
+		  <joint_name>left_joint</joint_name>
+		  <joint_name>right_joint</joint_name>
+		</plugin>
+  </model>
+</sdf>
