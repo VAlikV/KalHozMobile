@@ -4,7 +4,7 @@
 
 void setup()
 {
-
+  
   // Настройка выводов для управления моторами как выходы (OUTPUT).
   pinMode(LEFT_MOTOR_EN,OUTPUT);
   pinMode(LEFT_MOTOR_A,OUTPUT);
